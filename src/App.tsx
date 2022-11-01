@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import "./App.css";
+import AutoBatchEventHandler from "./components/AutoBatchEventHandler";
+import AutoBatchOther from "./components/AutoBatchOther";
 
 function App() {
+  // useEffectの２引数を[]にするとコンポーネントを読み込んだ最初だけ実行される。
+  useEffect(() => {
+    console.log("Appがレンダリングされた。React18では2回呼ばれる。");
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AutoBatchEventHandler />
+      <AutoBatchOther />
     </div>
   );
 }
