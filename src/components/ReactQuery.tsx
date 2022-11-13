@@ -18,10 +18,11 @@ const ReactQuery = () => {
   // useQuery：
   // 第一引数：キャッシュを効かせるために必要なキー
   // 第二引数：どういうfetchを行うかの関数を渡す。
+  // 第三引数：オプション。React側にSuspense有効であることを伝える。
   const { isLoading, error, data } = useQuery<Album[]>(["albums"], fetchAlbums);
 
-  if (error) return <p>エラーです！</p>;
-  if (isLoading) return <p>ローディング中です。。。</p>;
+  // if (error) return <p>エラーです！</p>;
+  // if (isLoading) return <p>ローディング中です。。。</p>;
 
   return (
     <div>
